@@ -8,3 +8,12 @@
 	opacity:initial;
 	transform: scale(0.98);
 }
+
+#nav-mobile li a.red-text:hover{
+	background-color: #F44336 !important;
+	color:white !important;
+}
+
+.remove-bot-margin{
+	margin-bottom:0px !important;
+}
