@@ -1,17 +1,26 @@
 
 .landing-page-box{
-	opacity:0.85;
-	transition:0.6s;
+	opacity:0.9;
+	transition:0.4s;
 }
 
 .landing-page-box:hover{
 	opacity:initial;
-	transform: scale(0.98);
 }
 
 #nav-mobile li a.red-text:hover{
 	background-color: #F44336 !important;
 	color:white !important;
+}
+
+.landing-page-title{
+	transition:0.4s;
+	padding:20px;
+}
+
+.landing-page-title:hover{
+	width:40% !important;
+	margin-bottom:40px;
 }
 
 .remove-bot-margin{
