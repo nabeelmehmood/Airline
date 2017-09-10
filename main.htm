@@ -1,0 +1,116 @@
+<html>
+  <body>
+  <!--   <div class = "" style="overflow:hidden;position:fixed; top:0; z-index:-1;">
+      <img src="/Airline/pictures/landing-page.png" class="landing-image">
+    </div> -->
+    <div ng-controller="mainCtrl">
+      <div class = "" style="min-height:500px; background-attachment:fixed; background-position:50% 50%; background-repeat:no-repeat; background-size:cover; background-image: url('/Airline/pictures/landing.jpg'); padding-bottom:100px">
+        <div class="row remove-bot-margin">
+          <div class="col s10 l4 push-l1 push-s1 teal darken-2 container landing-page-title" style="min-height:200px;">
+            <h1 class="white-text" style = "font-family: 'Amaranth'">NM Airlines</h1>
+            <h4 class="white-text" style="font-family: 'Amaranth'">It's time to fly</h4>
+          </div>
+        </div>
+
+        <div class = "row remove-bot-margin" style="">
+
+          <div class="bg-color teal-text col s10 l4 push-l1 push-s1 container landing-page-box" style="margin-bottom:0px !important;">
+            <div class="container" style="padding-bottom:50px"> 
+              <h3 class="center white-text" id="landing-fly">Fly With Us</h3>
+              <div class="row" style="margin-top:50px">
+                <div id="signinbutton" ng-click="modalshow='show-signup-modal'" class="btn btn-large teal white-text waves-light waves-effect" style="width:100%">Sign in</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="" style="width:100%">
+          <div class="btn btn-large white teal-text waves-effect waves-dark col s12 remove-bot-margin" style="width:100%">
+            Continue to website
+          </div>
+        </div> -->
+      </div>
+
+      <div id="signupmodal" ng-class="modalshow" class="remove-bot-margin" style="width:100%; height:100%; background-color: rgba(0,0,0,0.8); padding:40px 0px;">
+        <div class="row">
+          <div class="row login-signup-buttons" style="padding:0px !important;">
+            <div id="login-button" class="col l6 s6 btn waves-effect waves-dark" ng-class="loginmodal" ng-click="loginmodaltoggle(); signuphide=true; loginhide=false;" style="margin-left:0px">Login</div>
+            <div id = "signup-button" class="col l6 s6 btn waves-effect waves-dark" ng-class="signupmodal" ng-click="signupmodaltoggle(); signuphide=false; loginhide=true;" style="margin-right:0px">Signup</div>
+          </div>
+          <div class="white col l6 s10 push-s1 push-l3">
+            <form id = "login-form" ng-hide="loginhide" class="col s12 center">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" required class="validate">
+                      <label for="email" data-error="Enter a valid Email Address">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="password" type="password" minlength="6" required class="validate">
+                      <label for="password" data-error="Password should be more than 6 characters">Password</label>
+                    </div>
+                  </div>
+                  
+                  
+                  <div class="row">
+                    <div class="col s12">
+                      <input class="btn" id="submit" type="submit" style="width:100%"></input>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12">
+                      <div class="btn white teal-text waves-effect" style="box-shadow:initial !important" ng-click = "modalshow='show-signup-modal-hide'">Close</div>
+                    </div>
+                  </div>
+            </form>
+            <form id = "signup-form" class="col s12 center" ng-hide="signuphide">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="first_name" type="text" required class="validate">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="last_name" type="text" required class="validate">
+                      <label for="last_name">Last Name</label>
+                    </div>
+                  </div>  
+                 
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="password" type="password" minlength="6" required class="validate">
+                      <label for="password" data-error="Password should be more than 6 characters">Password</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" required class="validate">
+                      <label for="email" data-error="Enter a valid Email Address">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="cnic" type="text" pattern = "^\d{5}-\d{7}-\d{1}$" required class="validate">
+                      <label for="cnic" data-error="Enter a valid CNIC">CNIC (Format: XXXXX-XXXXXXX-X)</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12">
+                      <input class="btn" id="submit" type="submit" style="width:100%"></input>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12">
+                      <div class="btn white teal-text waves-effect" style="box-shadow:initial !important" ng-click = "modalshow='show-signup-modal-hide'">Close</div>
+                    </div>
+                  </div>
+            </form>
+
+               
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

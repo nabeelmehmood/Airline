@@ -1,0 +1,21 @@
+
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    
+    margin-bottom: 60px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    /* fixed height */
+    height: 60px;
+    line-height: 60px; /* Vertically centered text */
+    background-color:rgba(0, 0, 0, 0.60);
+  }
+  
+  

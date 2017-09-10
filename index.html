@@ -1,69 +1,93 @@
 <!DOCTYPE html>
-  <html>
+  <html ng-app = "myAirlineRoute" ng-controller="myctrl" ng-cloak>
     <head>
+      <title>NM Airlines</title>
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
-
+      <link rel="stylesheet" href="/Airline/css/angular-material.min.css">
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-
-
+      <script src="js/jquery-3.2.1.min.js"></script>
+      <script src="js/materialize.min.js"></script>
+      <script src="js/angular.min.js"></script>
+      <script src="js/angular-route.js"></script>
+      <script src="js/angular-animate.js"></script>
+      <script src="js/angular-aria.min.js"></script>
+      <script src="js/angular-messages.min.js"></script>
+      <script src="js/angular-material.min.js"></script>
+      <script src="js/angular.js"></script>
       <link rel="stylesheet" href="/Airline/css/custom.css">
 
-    </head>
-
-
-    <header> 
-      <nav>
-        <div class="nav-wrapper white darken-1 row" style="">
-          <a href="#!"><i class="material-icons small red-text s1 col" style="">menu</i></a>
-          <a href = "#!" class="red-text brand-logo col s3" style="font-family: 'Amaranth'; font-weight:bold; display: inline-block">NM Airlines</a>
-          <ul id="nav-mobile" class="red-text right col s8">
-            <li><a href="#!" class="red-text">Book Flight</a></li>
-            <li><a href="#!" class="red-text">Manage Your Bookings</a></li>
-            <li><a href="#!" class="red-text">Experience</a></li>
-          </ul>
+    </head> 
+    <header > 
+      <div id="side-nav" ng-class="sidenavvar" class="z-depth-4" >
+        <div class="row" style="margin-top:20px">
+          <span class="right" style="margin-right:10px">
+           <a href="#!"  class = "btn-floating teal white-text waves-effect waves-light " ng-click="toggleSidenav()"><i class="material-icons white-text" style="margin-right:10px; box-shadow: initial;">arrow_back</i></a>  
+          </span>
+          <span class="" style="">
+            <h4 class="white-text" style="font-family: 'Amaranth'; margin-left:10px">NM Airlines</h4>
+          </span>
         </div>
-      </nav>
-    </header>
 
-
-    <body>
-      <div class = "" style="max-height:660px;overflow:hidden;position:fixed; top:0; z-index:-1;">
-        <img src="/Airline/pictures/landing-page.png" style="width:100%;position:relative; bottom:100px">
-      </div>
-
-      <div class="row remove-bot-margin">
-        <div class="col s4 push-s1 red darken-2 container landing-page-title" style="margin-top:200px; min-height:200px;">
-          <h1 class="white-text" style = "font-family: 'Amaranth'">NM Airlines</h1>
-          <h4 class="white-text" style="font-family: 'Amaranth'">It's time to fly</h4>
-        </div>
-      </div>
-
-      <div class = "row" style="">
-
-        <div class="white darken-3 red-text col s4 push-s1 container landing-page-box" style="margin-bottom:0px !important;">
-          <div style="min-height:300px; padding:20px;"> 
-            <h3 class="center">Fly With Us</h3>
-            <div class="row container center" style="margin-top:50px">
-              <div class="col s5 push-s3 btn btn-large red white-text waves-light waves-effect">Login</div>
-              <div class="col s5 push-s5 btn btn-large red white-text waves-light waves-effect">Signup</div>
+        <div class="row container teal darken-2" style="border-radius:20px">
+          <div class="center-align" style="white-space:nowrap;">
+            <div class="row remove-bot-margin">
+              <span class=""><i class="material-icons white-text teal darken-2 medium" style="">account_circle</i></span>
+            </div>
+            <div class="row remove-bot-margin">
+              <span id="nav-user" class="white-text" style=" font-size:18px; font-weight: 300">Guest</span>
             </div>
           </div>
         </div>
-      </div>
-      <div class="red darken-3 white-text row remove-bot-margin center" style="margin-top:350px; min-height:300px">
-        <div class="btn btn-large white red-text waves-effect waves-dark col s12" style="">Continue to website</div>
-      </div>
 
+        <div class="row container">
+          <ul id="" class="teal-text" style="border-top:1px solid white ; padding-top:20px">
+            <li><a href="#!book" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important">Book a Flight</a></li>
+            <li><a href="#!" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important;">Manage</a></li>
+            <li><a href="#!" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important">Experience</a></li>
+          </ul>          
+        </div>
       </div>
+      <nav class="" style="">
+        <div class="nav-wrapper bg-color darken-1 row" style="">
+          <span class="hide-on-large-only">
+            <a href="#!" ng-click="toggleSidenav()"><i class="material-icons small col s1" style="">menu</i></a>  
+          </span>
+          <a href = "#!" id="#logo" class=" brand-logo" style="white-space:nowrap; font-family: 'Amaranth'; font-weight:bold; display: inline-block">NM Airlines</a>
+          <ul id="nav-mobile" class="white-text right hide-on-med-and-down" style="margin-right:8.3333333%">
+            <li><a href="#!book" class="">Book a Flight</a></li>
+            <li><a href="#!" class="">Manage Your Bookings</a></li>
+            <li><a href="#!" class="">Experience</a></li>
+          </ul>
+        </div>
+        
+      </nav>
+     <div class="teal darken-2  row white-text remove-bot-margin hide-on-med-and-down" style="">
+       <span class="col right" style="white-space:nowrap; margin-right:8.333%">
+        <span style="white-space:nowrap; font-weight:100;vertical-align:middle; margin-right:10px">{{ today | date : "MMMM, dd, yyyy" }}</span>
+        <span><i class="material-icons" style="vertical-align:middle">account_circle</i></span>
+        <span id="nav-user" style="vertical-align:middle; font-weight:100;">Guest</span>
+        <a href="#!" style="margin-left:20px"><span id="guest-login" class="white teal-text" style="vertical-align:middle;font-size:12px; font-weight:bold; border-radius:12px; padding:2px">Login</span></a>
+       </span>
+     </div>
+    </header>
+    <div ng-view></div>
+
+   
+    <footer class="row remove-bot-margin center" style="">
+     <!--  <div class="row teal darken-3 white-text remove-bot-margin">
+        <div class="col l6 white-text"><h1 style="font-family:'Amaranth'">NM Airlines</h1></div>
+      </div> -->
+      <div class="black white-text" style="height:25px; font-size:12px; vertical-align:middle">
+        Made with <span class="red-text"> &#10084; </span>by Nabeel
+      </div>
+    </footer>
+
     </body>
 
 

@@ -1,0 +1,99 @@
+<html>
+  <body>
+    <div ng-controller="mainCtrl" class="grey lighten-3">
+
+      <div class="" style="padding: 50px 8.33333%">
+        
+        <div class="row white remove-bot-margin">
+          <h2 class="col teal-text " style="font-weight:bold"> Bookings </h2>
+        </div>
+
+        <div class="row white remove-bot-margin">
+          <div class="col l4 m12 s12">
+            <md-card style="overflow:hidden;">
+              <div class= "md-card-image zoom aspect-ratio " style="overflow:hidden; background-image:url('pictures/vacation.jpg'); ">           
+              </div>
+              <md-card-title class="bg-color white-text" style="padding:10px;z-index:1">
+                <md-card-title-text>
+                  <span class="md-headline center flow-text">Go on a Vacation</span>
+                </md-card-title-text>
+              </md-card-title>
+            </md-card>
+          </div>
+
+          <div class="col l4 m12 s12">
+            <md-card style="overflow:hidden;">
+              <div class= "md-card-image zoom aspect-ratio" style="overflow:hidden; background-image:url('pictures/business.jpg'); width:100%;background-size:cover">    
+              </div>
+              <md-card-title class="bg-color white-text" style="padding:10px;z-index:1">
+                <md-card-title-text>
+                  <span class="md-headline center flow-text">Work on the go</span>
+                </md-card-title-text>
+              </md-card-title>
+            </md-card>
+          </div>
+
+          <div class="col l4 m12 s12">
+            <md-card style="overflow:hidden;">
+              <div class= "md-card-image zoom aspect-ratio" style="overflow:hidden; background-image:url('pictures/family.jpg'); width:100%;background-size:cover">
+              </div>
+              <md-card-title class="bg-color white-text" style="padding:10px;z-index:1">
+                <md-card-title-text>
+                  <span class="md-headline center flow-text truncate">Travel with Family</span>
+                </md-card-title-text>
+              </md-card-title>
+            </md-card>
+          </div>
+        </div>
+        <div class="row white" style="">       
+          <form id="booking-form" name="booking" style="padding:50px">
+            <div class="row" style="margin-top:50px">
+              <div class="col s6">
+                <md-input-container style="display:block">
+                  <label>Where From</label>
+                  <md-select name="wherefrom" ng-model="booking.wherefrom" required>
+                    <md-option value="lhr">Lahore</md-option>
+                    <md-option value="khi">Karachi</md-option>
+                    <md-option value="jfk">New York</md-option>
+                    <md-option value="dxb">Dubai</md-option>
+                    <md-option value="par">Paris</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+
+              <div class="col s6">
+                <md-input-container style="display:block">
+                  <label>Where To</label>
+                  <md-select name="whereto" ng-model="booking.whereto" required>
+                    <md-option value="lhr">Lahore</md-option>
+                    <md-option value="khi">Karachi</md-option>
+                    <md-option value="jfk">New York</md-option>
+                    <md-option value="dxb">Dubai</md-option>
+                    <md-option value="par">Paris</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12">
+               <md-input-container>
+                  <label>Date of flight</label>
+                  <md-datepicker name="flightdate" ng-model="flightdate" required></md-datepicker>
+                  <div ng-messages="booking-form.flightdate.$error">
+                    <div ng-message="required"></div>
+                  </div>
+                </md-input-container>
+              </div>
+            </div>
+            <div id="guest-booking" class="red-text" style="font-style:italic;margin:10px">
+              *You must be signed in to book flights
+            </div>
+          </form>
+        </div>
+        
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,23 @@
+html{
+	max-width:100%;
+}
+
+html, body{
+	height:100%;
+}
+
+footer{
+	/*min-height:150px;*/
+}
+
+.landing-image{
+	height:100%;
+	position:relative; 
+	bottom:50px;
+}
 
 .landing-page-box{
-	opacity:0.9;
+	opacity:0.95;
 	transition:0.4s;
 }
 
@@ -8,14 +25,37 @@
 	opacity:initial;
 }
 
-#nav-mobile li a.red-text:hover{
-	background-color: #F44336 !important;
+#nav-mobile li a{
+	transition:0.3s;
+}
+
+#nav-mobile li a:hover,
+#nav-mobile li a:active{
+	background-color:#292929 !important;
 	color:white !important;
+}
+
+.zoom{
+	transition:all 1s;
+	overflow: hidden;
+	object-fit:cover;
+}
+
+.zoom:hover{
+	transform:scale(1.1);
+	filter:contrast(1.3); 
+}
+
+.aspect-ratio{
+	width:100%;
+	background-size:cover;
+	padding-top:75%;
 }
 
 .landing-page-title{
 	transition:0.4s;
 	padding:20px;
+	margin-top:100px;
 }
 
 .landing-page-title:hover{
@@ -25,4 +65,106 @@
 
 .remove-bot-margin{
 	margin-bottom:0px !important;
+}
+
+.brand-logo{
+	margin-left:8.3333333333%;
+}
+
+#side-nav{
+	position:fixed;
+	z-index:2;
+	width:250px;
+	top:0;
+	bottom:0;
+	background-color:rgba(51,51,51,0.95);
+	transition:0.4s;
+	overflow: auto;
+}
+
+#side-nav:hover{
+	background-color:#333;
+}
+
+.side-nav-hidden{
+	left:-250px;
+}
+
+.side-nav-show{
+	left:0 !important;
+}
+
+ /* label focus color */
+.input-field input[type]:focus + label {
+	color: #1e88e5 !important;
+}
+/* label underline focus color */
+.input-field input[type]:focus {
+	 border-bottom: 1px solid #1e88e5 !important;
+	 box-shadow: 0 1px 0 0 #1e88e5 !important;
+}
+
+.bg-color{
+	background-color:#333 !important;
+}
+
+.show-signup-modal-hide{
+	transition:0.3s;
+	display:none!important;
+	top:0;
+	z-index:2;	
+	width:0px;
+	height:0px;
+	overflow:scroll;
+}
+
+.show-signup-modal{
+	transition:0.3s;
+	display:block !important;
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	width:100%;
+	height:100%;
+	overflow:scroll;
+	z-index:2;
+}
+
+.login-signup-buttons{
+	width:50%;
+}
+
+@media only screen and (max-width: 992px) {
+	.landing-image{
+		width:1300px;
+		right:24%;
+		bottom:50px
+	}
+	.landing-page-title{
+		margin-top:100px;
+	}
+	.landing-page-title:hover{
+		margin-bottom:40px;
+		width:83.333333333% !important;
+	}
+	.brand-logo{
+		margin-left:initial;
+	}
+	#landing-fly{
+		font-size:30px;
+	}
+	.login-signup-buttons{
+		width:83.3333%;
+	}
+	.aspect-ratio{
+		width:100%;
+		background-size:cover;
+		padding-top:40%;
+	}
+}
+
+@media only screen and (max-width: 772px) {
+	
 }

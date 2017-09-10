@@ -1,0 +1,1259 @@
+<html lang="en" scroll>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+</head>
+
+
+<body ng-app = "myapp" ng-controller="myctrl" >
+	<md-sidenav ng-cloak class = "md-sidenav-left" md-component-id = "right" ng-class="sidenav" style = "max-width:250px" flex  ng-show="show" ng-init = "show = true; sidenav= 'sidenav-hidden'" md-whiteframe = "4" md-disable-backdrop style="padding: none; background-color:#2d2d2d;"> 
+	        <div layout = "row">
+	        	<div layout-padding layout-align="start center" flex><h1 class = "md-title" style="font-size:20px;font-family:freshman; color: #ffed0b; white-space: nowrap; cursor:pointer">JOURNAL POST</h1>
+	        	</div>
+	        	<md-button layout-align="end" style="background-color:#2d2d2d;" class = "md-fab" ng-click="sidenav='sidenav-hidden'" >
+	        	<i class="material-icons back" style="font-size:24px">arrow_back</i>
+				</md-button>
+	        </div>
+	        <md-divider class ="divide" ></md-divider>
+	      <div layout = "row">
+	    	<h2 class = "md-title" style = "padding-left: 15px; padding-top: 5px; color:white; font-size:18px; font-weight:bold">Categories</h2>
+	    </div>
+	    <div layout="column" layout-align="center center">
+	  <md-button class="groupX left" layout-align="start stretch" md-ink-ripple="#acacac">News</md-button>
+	  <md-button class="groupX middle" layout-align="start stretch" md-ink-ripple="#acacac">Celebs</md-button>
+	  <md-button class="groupX middle" layout-align="start stretch" md-ink-ripple="#acacac">Tech</md-button>
+	  <md-button class="groupX right" layout-align="start stretch" md-ink-ripple="#acacac">Health</md-button>
+	  <md-button class="groupX right" layout-align="start stretch" md-ink-ripple="#acacac">Life</md-button>
+
+	</div>
+	  <md-divider class ="divide" ></md-divider>
+	      </div>
+	      
+	      <div layout-padding style ="text-align:center">
+	        <md-button class="md-primary md-accent" md-ripple-size="auto" ng-click="sidenav='sidenav-hidden'" style="color:yellow">Hide</md-button>
+
+	      </div>
+	     
+	</md-sidenav>
+	<div layout = "column" ng-style="headerslide" md-whiteframe="3" style = "z-index:1">
+		<div layout = "column">
+
+			<div layout="row" style = "min-height:20px; background-color: #f2f2f2" >
+				<div flex layout-align="start center" style = ""></div>
+					<div layout-align="center center" flex-gt-sm="90" flex="90" style="margin:auto"><span class = "md-subheader">Weather:- Bohat garmi hai bc | Lahore, Pakistan</span>
+					</div>
+					<div flex layout-align="end center" style = ""></div>
+			</div>
+			<div layout = "row"  style = "background-color: #2d2d2d; min-height:60px">
+				<div flex layout-align="start center" style = "background-color:#2d2d2d">
+							<md-button layout-align = "center center" hide-gt-xs ng-click="sidenav='sidenav-show'" style = "margin-top: 10px" class=" removeleftpadding listicon md-button-block">
+					         	<i class="material-icons" layout-align="center center" style="font-size:36px">menu</i>
+					         	</md-button>
+				</div>
+				<div layout-align="center" layout="column" layout-xs = "row" layout-gt-sm="row" flex-gt-sm="90" flex="90" style="background-color:#2d2d2d">
+					<div hide-gt-sm flex style="min-height:5px">
+						
+					</div>
+					<div layout-align="center center" class="headertext1" style=" cursor:pointer">JOURNAL POST</div>
+					<div flex layout ="row">
+						<md-nav-bar
+					      md-selected-nav-item="currentNavItem"
+					      nav-bar-aria-label="navigation links" layout="column"
+					      flex layout-align="center center" md-theme = "headertheme" hide-xs>
+						      	<div flex="auto" layout="row" hide-xs>
+							     <md-nav-item md-nav-click="goto('News')" name="News">
+							           NEWS
+							     </md-nav-item>
+							      <md-nav-item md-nav-click="goto('Celebs')" name="Celebs">
+							           CELEBS
+							     </md-nav-item>
+							      <md-nav-item md-nav-click="goto('Tech')" name="Tech">
+							           TECH
+							     </md-nav-item>
+							      <md-nav-item md-nav-click="goto('Health')" name="Health">
+							           HEALTH
+							     </md-nav-item>
+							      <md-nav-item md-nav-click="goto('Life')" name="Life">
+							           LIFE
+							     </md-nav-item>
+							     
+							 </div>
+						</md-nav-bar>
+						<div flex="20">
+								<div layout-align="end center" layout="row">
+									<md-button  ng-click="openNav()" class = "searchbtn"><i class="material-icons" layout-align="center center" style="font-size:24px">search</i></md-button>
+							    	<md-button class = "loginbutton md-button" hide-md hide-sm hide-xs><span style="font-size:10px;" flex="auto" layout-align="center center">LOGIN</span></md-button>
+							    	<div show-gt-md style="min-width:50px">
+							    	</div>
+							    </div>
+
+							    <div layout-align="end center" layout="row" hide-gt-xs hide-xs>
+									<md-button id="smallsearch" class = "searchbtn"><i class="material-icons" layout-align="center center" style="font-size:4vw">search</i></md-button>
+							    	<md-button id="smalllogin" class = "loginbutton md-button"><span style="font-size:10px" flex="auto" layout-align="center center">LOGIN</span></md-button>
+							    	<div show-gt-md style="min-width:50px">
+							    	</div>
+							    </div>
+						</div>
+					</div>
+					
+				</div>
+				<div flex layout-align="end center" style = ""></div>
+
+			</div>
+			<div flex style="background-color:#ffed0b;min-height:4px">
+			</div>
+		</div>
+	</div>
+	<div id="myNav" class="overlay">
+	      <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()"><i class="material-icons" style="font-size:1.3em">close</i></a>
+	      <div class="overlay-content" layout="row">
+	        <div flex></div>
+	        <md-input-container md-theme="headertheme" flex="60"><input style="background-color:; color: white; font-size:6vw" placeholder="Search Item"></md-input-container>
+	        <md-button ng-click="openNav()"><i class="material-icons" style="color:rgba(250,250,250,0.9); font-size: 4em; font-weight: bold">search</i></md-button>
+	        <div flex></div>
+	      </div>
+	</div>
+
+	<div layout = "row" style=" ">
+		<div flex></div>
+			<div id="content" flex-gt-sm="90" flex="90" layout="column">
+				   <span  style= "max-height:inherit" ng-style="contentmargin"> 
+					    <md-grid-list  md-cols="8"  ng-init = "classbox = 'headlinebox'" md-cols-sm="8" md-cols-xs="8" md-row-height="16:11" md-gutter="15px">
+						     <md-grid-tile style="overflow:hidden" md-colspan="8" md-rowspan="6" md-colspan-sm="8" md-rowspan-sm="6" md-colspan-xs="8" md-rowspan-xs="8">
+						     	 <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('selena.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+						    
+						     		<md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="height:auto; border-top-style:solid; border-top-width:50x; border-color:yellow">Selena gomez does something interesting...<div class="md-subhead">Author: Me</div></md-grid-tile-footer>
+						     	 
+						     </md-grid-tile>
+
+						</md-grid-list>
+
+				      
+				 	</span>
+
+				<div style="margin-top: 50px"> 
+
+					<div layout="row">
+						   
+						<span layout="column" flex="70" flex-sm="100" flex-xs="100" style="max-height:inherit"> 
+							<md-grid-list md-cols="8"   ng-init = "classbox = 'headlinebox'"  md-cols-xs="8" md-row-height="16:13" md-gutter="10px">
+
+							    <md-grid-tile style="overflow:hidden" md-colspan="4" md-colspan-sm="4" md-colspan-xs="8" md-rowspan="4" md-rowspan-sm="4" md-rowspan-xs="5" >
+								      <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('kendall.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+								     <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow;overflow:inherit">Hey I just met you
+								     <div style="width:auto; height:auto; white-space:nowrap; background-color:#ffed0b;z-index:0;padding:5px; color:black; text-align:center; position:absolute;top:-15; left:75%; font-size:1vw;cursor:pointer; border-radius:10px" class="md-body-3">Follow Us</div>
+								     <div class="md-subhead" style="font-size:12px">Author: Someone - 5th July, 2017</div>
+									</md-grid-tile-footer>
+							    </md-grid-tile>
+
+							    <md-grid-tile style="overflow:hidden" md-colspan="4" md-colspan-sm="4"md-colspan-xs="8" md-rowspan="4" md-rowspan-sm="4" md-rowspan-xs="5">
+								    <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('donald.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+								    <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">And this is crazy</md-grid-tile-footer>
+							    </md-grid-tile>
+
+							    <md-grid-tile style="overflow:hidden" md-colspan="4" md-colspan-sm="4"md-colspan-xs="8" md-rowspan="4" md-rowspan-sm="4" md-rowspan-xs="5">
+								    <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('kylie.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+								    <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">But heres my number</md-grid-tile-footer>
+								</md-grid-tile>
+
+								<md-grid-tile style="overflow:hidden" md-colspan="4" md-colspan-sm="4"md-colspan-xs="8" md-rowspan="4" md-rowspan-sm="4" md-rowspan-xs="5" >
+								    <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('selena.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+								    <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">So call me maybe</md-grid-tile-footer>
+							    </md-grid-tile>
+
+
+
+							</md-grid-list>	
+							<div flex></div>   
+
+					 	</span>
+
+					   <div layout="row" flex  hide-xs hide-sm><md-divider md-inset style="margin-left:30px" ></md-divider>
+						   	<div style="position:relative" flex>
+						  		 <div flex style="position:sticky; top:10">
+								   <div md-whiteframe style="margin-left:10px; background-color:white" flex layout="column">
+								   		<div style="background-color:#2d2d2d" layout="column">
+								   			<div style="text-align:center">
+								   				<h3 class="md-display-1 celebrank-box-font">Trending Celebs</h3>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   				<p class="md-subhead celeb-rank-item"> Selena Gomez</p>
+								   			</div>
+							   			</div>
+					   		    	</div>
+				   		    	</div>
+		   		    		</div>
+					   </div>
+					   
+
+
+			
+					</div>
+
+
+				    
+
+	   				<div layout="row" style="margin-top:50px">
+		   				<div flex="70" flex-sm="100" flex-xs="100" style="max-height:inherit">
+							   <div style= "max-height:inherit"> 
+								    <md-grid-list  md-cols="8"  ng-init = "classbox = 'headlinebox'" md-cols-sm="8" md-cols-xs="8" md-row-height="16:10" md-gutter="10px">
+									     <md-grid-tile style="overflow:hidden" md-colspan="8" md-rowspan="8" md-colspan-sm="8" md-rowspan-sm="6" md-colspan-xs="8" md-rowspan-xs="8">
+									     	 <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('amber.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+									     	 <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">Its hard to look right</md-grid-tile-footer>
+									     </md-grid-tile>
+
+									</md-grid-list>
+
+							      
+							 	</div>
+		 					   <div flex="100" flex-sm="66" flex-xs="66" style= "max-height:inherit; margin-top:50px"> 
+		 						    <md-grid-list  md-cols="8"  ng-init = "classbox = 'headlinebox'" md-cols-sm="8" md-cols-xs="8" md-row-height="16:11" md-gutter="10px">
+		 							     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5">
+		 							     	 <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('kendall.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		 							     	 <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">At you baby</md-grid-tile-footer>
+		 							     </md-grid-tile>
+
+		 							     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5">
+		 								     <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('donald.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		 								     <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">But heres my number</md-grid-tile-footer>
+		 							     </md-grid-tile>
+
+		 							      <md-grid-tile style="overflow:hidden"style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5">
+		 								      <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('kylie.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		 								      <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">So call me maybe</md-grid-tile-footer>
+		 							      </md-grid-tile>
+
+
+		 							     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5" >
+		 								      <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('selena.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		 								      <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">K thnx bai</md-grid-tile-footer>
+		 							      </md-grid-tile>
+
+
+
+		 	   						</md-grid-list>
+
+		 					      
+		 					 	</div>
+		   					
+	   					</div>
+		   				<div layout = "row" flex hide-sm hide-xs>
+			   				<md-divider md-inset style="margin-left:30px" ></md-divider> 
+
+			   				<div flex style="position:relative">
+				   				<div layout="column" flex style="position:sticky; top:10">
+		      		   		   		<md-card layout="row" style="cursor:pointer">
+		      		   		   			<div flex="30" class = "crop" style="background-image:url('selena.jpg')">
+		      		   		   			</div>
+		      		   		   		       <md-card-title>
+		      		   		   		         <md-card-title-text>
+		      		   		   		           <span class="md-headline">Article Title</span>
+		      		   		   		           <span class="md-subhead">Some very important news</span>
+		      		   		   		         </md-card-title-text>
+		      		   		   		       </md-card-title>
+				   		   		     	</md-card>
+
+				   		   		     	<md-card layout="row" style="cursor:pointer">
+		      		   		   			<div flex="30" class="crop" style="background-image:url('donald.jpg')">
+		      		   		   			</div>
+		      		   		   		       <md-card-title>
+		      		   		   		         <md-card-title-text>
+		      		   		   		           <span class="md-headline">Article Title</span>
+		      		   		   		           <span class="md-subhead">Some very important news</span>
+		      		   		   		         </md-card-title-text>
+		      		   		   		       </md-card-title>
+				   		   		     	</md-card>
+		   				   
+		   				   			<md-card layout="row" style="cursor:pointer">
+		      		   		   			<div flex="30" class = "crop" style="background-image:url('kylie.jpg')">
+		      		   		   			</div>
+		      		   		   		       <md-card-title>
+		      		   		   		         <md-card-title-text>
+		      		   		   		           <span class="md-headline">Article Title</span>
+		      		   		   		           <span class="md-subhead">Some very important news</span>
+		      		   		   		         </md-card-title-text>
+		      		   		   		       </md-card-title>
+				   		   		     	</md-card>
+
+	     	      		   		   		<md-card layout="row" style="cursor:pointer">
+	     	      		   		   			<div flex="30" class = "crop" style="background-image:url('selena.jpg')">
+	     	      		   		   			</div>
+	     	      		   		   		       <md-card-title>
+	     	      		   		   		         <md-card-title-text>
+	     	      		   		   		           <span class="md-headline">Article Title</span>
+	     	      		   		   		           <span class="md-subhead">Some very important news</span>
+	     	      		   		   		         </md-card-title-text>
+	     	      		   		   		       </md-card-title>
+	     			   		   		     	</md-card>
+
+	     			   		   		     	<md-card layout="row" style="cursor:pointer">
+	     	      		   		   			<div flex="30" class="crop" style="background-image:url('donald.jpg')">
+	     	      		   		   			</div>
+	     	      		   		   		       <md-card-title>
+	     	      		   		   		         <md-card-title-text>
+	     	      		   		   		           <span class="md-headline">Article Title</span>
+	     	      		   		   		           <span class="md-subhead">Some very important news</span>
+	     	      		   		   		         </md-card-title-text>
+	     	      		   		   		       </md-card-title>
+	     			   		   		     	</md-card>
+	     	   				   
+	     	   				   			<md-card layout="row" style="cursor:pointer">
+	     	      		   		   			<div flex="30" class = "crop" style="background-image:url('kylie.jpg')">
+	     	      		   		   			</div>
+	     	      		   		   		       <md-card-title>
+	     	      		   		   		         <md-card-title-text>
+	     	      		   		   		           <span class="md-headline">Article Title</span>
+	     	      		   		   		           <span class="md-subhead">Some very important news</span>
+	     	      		   		   		         </md-card-title-text>
+	     	      		   		   		       </md-card-title>
+	     			   		   		     	</md-card>
+
+	     	   				   			<md-card layout="row" style="cursor:pointer">
+	     	      		   		   			<div flex="30" class = "crop" style="background-image:url('kylie.jpg')">
+	     	      		   		   			</div>
+	 	      		   		   		       <md-card-title>
+	 	      		   		   		         <md-card-title-text>
+	 	      		   		   		           <span class="md-headline">Article Title</span>
+	 	      		   		   		           <span class="md-subhead">Some very important news</span>
+	 	      		   		   		         </md-card-title-text>
+	 	      		   		   		       </md-card-title>
+	 			   		   		     	</md-card>
+				   		   		     	
+	 			   		   		     	</div>
+				   				
+				   				</div>
+
+		   				    </div>
+	   				
+
+	   				</div>
+
+		
+				   	<div layout="row" layout-sm="column" layout-xs="column" flex>
+
+					   
+
+		   				<div layout = "row" flex hide-sm hide-xs>
+			   				<md-divider md-inset style="margin-left:30px" ></md-divider> 
+			   				   <div layout="column" style="margin-left:10px; padding:15px" flex>
+			   				   		
+			   				   </div>
+
+	   				     </div>
+	   				</div>
+
+
+	   				<md-divider class="contentdivide" style="margin-top: 60px" ></md-divider>
+
+	   				<div flex-gt-sm="100" flex-sm="60" flex-xs="60" style="margin: 20px; margin-top: 40px; margin-left:auto; margin-right:auto; max-height:inherit" ng-init="videoclass='playbutton'">
+					    <md-grid-list md-cols="12"  ng-init = "classbox = 'headlinebox'" md-cols-sm="12" md-cols-xs="12" md-row-height="16:11" md-gutter="10px">
+						     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="12" md-rowspan-sm="12" md-colspan-xs="12" md-rowspan-xs="12" >
+						     	 <div class = "crop videoimage" style = "min-width:100%; min-height:100%; background-image:url('kendall.jpg');" ng-mouseenter="videoclass='playbutton-hover'" ng-mouseleave="videoclass='playbutton'">
+						     	 	<div class="video" flex layout="column">
+						     	 		<i class="material-icons" ng-class="videoclass">play_arrow</i>
+						     	 	</div>
+						     	 </div>
+						     	 <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">At you baby</md-grid-tile-footer>
+						     </md-grid-tile>
+
+
+						     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="12" md-rowspan-sm="12" md-colspan-xs="12" md-rowspan-xs="12" >
+						     	 <div class = "crop videoimage" style = "min-width:100%; min-height:100%; background-image:url('kylie.jpg');" ng-mouseenter="videoclass='playbutton-hover'" ng-mouseleave="videoclass='playbutton'">
+						     	 	<div class="video" flex layout="column">
+						     	 		<i class="material-icons" ng-class="videoclass">play_arrow</i>
+						     	 	</div>
+						     	 </div>
+						     	 <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">But here's my number</md-grid-tile-footer>
+						     </md-grid-tile>
+
+						     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="12" md-rowspan-sm="12" md-colspan-xs="12" md-rowspan-xs="12" >
+						     	 <div class = "crop videoimage" style = "min-width:100%; min-height:100%; background-image:url('donald.jpg');" ng-mouseenter="videoclass='playbutton-hover'" ng-mouseleave="videoclass='playbutton'">
+						     	 	<div class="video" flex layout="column">
+						     	 		<i class="material-icons" ng-class="videoclass">play_arrow</i>
+						     	 	</div>
+						     	 </div>
+						     	 <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">So call me maybe</md-grid-tile-footer>
+						     </md-grid-tile>
+						    
+
+						</md-grid-list>
+
+
+	   				</div>
+
+	   				<md-divider class="contentdivide" style="margin-top: 50px;" ></md-divider>
+
+
+
+	   				<div layout="row" style="margin-top:50px;">
+		   				<div flex="70" flex-sm="100" flex-xs="100" style="max-height: inherit">
+							   <span  style= "max-height:inherit"> 
+								    <md-grid-list  md-cols="8"  ng-init = "classbox = 'headlinebox'" md-cols-sm="8" md-cols-xs="8" md-row-height="16:10" md-gutter="10px">
+									     <md-grid-tile style="overflow:hidden" md-colspan="8" md-rowspan="8" md-colspan-sm="8" md-rowspan-sm="6" md-colspan-xs="8" md-rowspan-xs="8">
+									     	 <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('amber.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+									     	 <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">Its hard to look right</md-grid-tile-footer>
+									     </md-grid-tile>
+
+									</md-grid-list>
+
+							      
+		      					    <md-grid-list style="margin-top:40px" md-cols="8"  ng-init = "classbox = 'headlinebox'" md-cols-sm="8" md-cols-xs="8" md-row-height="16:11" md-gutter="10px">
+		      						     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5">
+		      						     	 <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('kendall.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		      						     	 <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">At you baby</md-grid-tile-footer>
+		      						     </md-grid-tile>
+
+		      						     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5">
+		      							     <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('donald.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		      							     <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">But heres my number</md-grid-tile-footer>
+		      						     </md-grid-tile>
+
+		      						      <md-grid-tile style="overflow:hidden"style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5">
+		      							      <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('kylie.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		      							      <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">So call me maybe</md-grid-tile-footer>
+		      						      </md-grid-tile>
+
+
+		      						     <md-grid-tile style="overflow:hidden" md-colspan="4" md-rowspan="4" md-colspan-sm="4" md-rowspan-sm="4" md-colspan-xs="8" md-rowspan-xs="5" >
+		      							      <div class = "crop headlineimage" style = "min-width:100%; min-height:100%; background-image:url('selena.jpg');" ng-mouseenter="classbox='headlinebox-hover'" ng-mouseleave="classbox='headlinebox'"></div>
+		      							      <md-grid-tile-footer ng-class="classbox" class = "md-title boxfont" style="border-top-style:solid; border-top-width:50x; border-color:yellow">K thnx bai</md-grid-tile-footer>
+		      						      </md-grid-tile>
+
+
+
+		         						</md-grid-list>	   	
+							 	</span>
+
+		   					
+	   					</div>
+		   				<div layout = "row" flex hide-sm hide-xs>
+			   				<md-divider md-inset style="margin-left:30px" ></md-divider> 
+			   				   <div layout="column" style="margin-left:10px;" flex>
+			   				   		<div class="tweetsbox" md-whiteframe style="margin-left:10px">
+			   				   		
+				   				   		<h1 class="md-display-1 tweets-head" style="text-align:center;"> Latest Tweets</h1>
+				   				   		<div class="tweetsbg">
+				   				   			<p class="md-body-2" style="text-align:center;">In it except to so temper mutual tastes mother. Interested cultivated its continuing now yet are.</p>
+				   				   			<p class="md-caption" style="text-align:center;">2 hours ago</p>
+				   				   		</div>
+
+				   				   		<div class="tweetsbg">
+				   				   			<p class="md-body-2" style="text-align:center;">Exquisite cordially mr happiness of neglected distrusts. Boisterous impossible unaffected he me everything. Is fine loud deal an rent open give. </p>
+				   				   			<p class="md-caption" style="text-align:center;">10 hours ago</p>
+				   				   		</div>
+			   				   		</div>
+		   				   	   		<div layout="column" md-whiteframe style="margin-left:10px">
+		   				      				<div class="social-box" flex>
+		   				      					<div class=".md-display-1 social-box-font">Stay Connected</div>
+		   				      					<div class="md-button learn" style="margin-left:0px">Learn More</div>
+		   				      					<div layout="column">
+		   				      						<div class="md-display-1 social-box-font-2">Newsletter</div>
+		   				      						<form class="social-subscribe-form" layout="column" md-theme="inputtheme">
+		   				      							<md-input-container>
+		   				      								<label>Email</label>
+		   				      								<input type="text" ng-model="user.name">
+		   				      							</md-input-container>
+		   				      							<md-button class="md-raised follow">Follow us</md-button>
+		   				      						</form>
+		   				      					</div>
+
+		   				      					<div layout="row" flex layout-align="center">
+		   				      						<a href="#" class="social-box-icon-wrap">
+		   				      							<img src="facebook-icon.png" class="social-icon"/>
+		   				      						</a>
+		   				      						<a href="#" class="social-box-icon-wrap">
+		   				      							<img src="twitter-icon.png" class="social-icon"/>
+		   				      						</a>
+		   				      						<a href="#" class="social-box-icon-wrap">
+		   				      							<img src="instagram-icon.png" class="social-icon"/>
+		   				      						</a>
+		   				      						<a href="#" class="social-box-icon-wrap">
+		   				      							<img src="youtube-icon.png" class="social-icon"/>
+		   				      						</a>
+
+		   				      					</div>
+		   				      				</div>	   	   				   		
+		   				   	   		</div>
+			   				   			
+		   				   		
+	      		   		   		
+		   				    </div>
+
+	   				    </div>
+
+	   				</div>
+	 				
+	 				<div flex class="md-body-2 more-button">
+	 					<div style="font-size:15px">More Stories</div>
+	 				</div>
+				</div>
+			</div>
+		<div flex></div>
+	</div>
+
+	<div id="border-footer" style="background-color:#ffed0b; min-height:2px; width:100%; margin-top: 40px"></div>
+	<div id="footer">
+	    <div id="footer-wrappper" layout-wrap layout="column">
+	                <div layout="column" layout-lg="row" layout-gt-lg="row" layout-md="row" layout-wrap  style="padding: 10px 20px 10px 20px">
+	                    <div id="sidebar-0" flex flex-md="50" flex-gt-md="50" layout="column" style="padding:50px 10px 10px 10px; font-weight:200;">
+	                        <p style="font-weight:100; font-size:calc(10px + 0.6vw); color: lightgrey"><small>©2017</small> ALL COPY RIGHTS RESERVED</p>
+	                        <div class="footertitle"> JOURNAL POST</div>
+	                    </div>
+	                    <div id="sidebar-1" flex flex-md="15" flex-gt-md="15" layout="column" style="padding:0px 10px 10px 10px; font-weight:200;">
+	                        <h4>OUR WORK</h4>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> Category </a>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> Category </a>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> Category </a>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> Category </a>
+	                    </div>
+	                    <div id="sidebar-2" flex flex-md="15" flex-gt-md="15"  layout="column" style="padding:0px 10px 10px 10px; font-weight:200;">
+	                        <h4>COMPANY</h4>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> Abouts us </a>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> Contact us </a>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> Advertise </a>
+	                        <a href="" style="color: white; text-decoration: none; font-size: 1.2em; margin: 5px"> FAQS </a>
+	                    </div>
+	                    <div id="sidebar-3" flex flex-md="20" flex-gt-md="20" style="padding:0px 40px 10px 10px;">
+	                        <h4>CONNECT WITH US</h4>
+	                        <div id="social-iconss" layout-lg="column" layout-md="column" layout="row">
+	                            <a id="facebook" class="social" href="" style="background-color:#75ADD1; padding:15px; margin:5px"></a>
+	                            <a id="google"  class="social" href="" style="background-color:#F5734B; padding:15px; margin:5px"></a>
+	                            <a id="linkedin"  class="social" href="" style="background-color:#F8FA72; padding:15px; margin:5px"></a>
+	                            <a id="twitter"  class="social" href="" style="background-color:#2562AA; padding:15px; margin:5px"></a>
+	                        </div>
+	                    </div>
+	                </div>
+	            <div id="border-footer" flex style="background-color:#FDEA00; padding:1px; margin: 0px 10% 0px 10%" ></div>
+	            <div id="footer-base" flex style="padding: 20px" layout="row">
+	            	<div flex></div>
+		            <div layout="column" flex-gt-md="90">
+		            	<div id="terms-row-1" layout="row" layout-wrap flex>
+		            		<div flex="0" flex-gt-sm="10"></div>
+		            		<a href="" class="footerlastrow" flex-gt-sm="15" flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		            		<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		            		<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		            		<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		            		<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		            		<div flex="0" flex-gt-sm="10"></div>
+		            		<div flex="0" flex-md="0" flex-gt-sm="10"></div>
+		                	<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		                	<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		                	<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		                	<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		                	<a href="" class="footerlastrow" flex-gt-sm="15"  flex-sm="20" flex="40"> TERMS OF SERVICES </a>
+		                </div>
+		                <div layout="row" layout-xs="column">
+		                	<div flex="0" flex-gt-sm="10"></div>
+		                    <a href="" class="footerlastrow" style="margin-bottom:20px" flex> TERMS OF SERVICES </a>
+		                    <a href="" class="footerlastrow" style="margin-bottom:20px"  flex> PRIVACY POLICY </a>
+		                    <a href="" class="footerlastrow" style="margin-bottom:20px"  flex> SITE MAP </a>
+		                    <div style="padding:10px" hide show-xs></div>
+		                    <md-input-container flex class="languagedropdown"  md-theme="dropdowntheme">
+		                        <label>SELECT LANGUAGE</label>
+		                        <md-select ng-model="languages" class="Dropdown" style="border-style:ridge; border-color: lightgrey ; border-width: 1px; padding:5px 0px 0px 10px">
+		                            <md-option ng-value="item" ng-repeat="item in languagesList"> {{item}}</md-option>
+		                        </md-select>
+		                    </md-input-container>
+		                    <div flex="0" flex-gt-sm="10"></div>
+		                </div>
+	                </div>
+	                <div flex></div>
+	            </div>
+	    </div>
+	</div>
+
+
+	
+		
+
+</body>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/angular.headroom.min.js"></script>
+
+<script>
+	var app = angular.module('myapp', ['ngMaterial','ngAnimate'])
+	app.controller('myctrl', function($window, $scope,$mdDialog, $mdSidenav, $timeout, $mdUtil, $rootScope){
+		 $rootScope.jumbostyle = {
+		        "background-color" : "rgba(0,0,0,0.3)",
+		        "min-height" : "10%",
+		        "height" : "auto",
+		        "position" : "absolute",
+		        "width" : "100%",
+		        "bottom" : "0",
+		        "color" : "white",
+		        "-webkit-transition" : "0.4s ease-in-out"
+		    };
+
+		  $scope.yposition = window.pageYOffset;
+		 $rootScope.headerslide = {
+		        "position" : "fixed",
+		        "top" : "0",
+		        "left" : "0",
+		        "right" : "0",
+		        "-webkit-transition" : "0.2s ease-in-out"
+		    };
+		    $scope.languagesList=['English','French','Arabic','Spanish','Latin']
+
+		  $rootScope.contentmargin = {
+		  	
+		  	"webkit-transition" : "0.4s ease-in-out"
+		  };		  
+		  $window.onscroll = function() {
+		    $scope.topposition = ($window.pageYOffset || document.documentElement.scrollTop);
+		    if (($scope.topposition - $scope.yposition) > 5 ){
+		    	$scope.winwidth = window.innerWidth;
+		    	if ($scope.winwidth < 960 && $scope.winwidth > 600)
+		    	{
+		    		$scope.topslide = -99;
+		    	}
+		    	else{
+		    		$scope.topslide = -80;
+		    	}
+		    	$scope.headerslide = {
+		    	"position" : "fixed",
+		  		"top" : $scope.topslide,
+		  		"left" : "0",
+		  		"right" : "0",
+		  		"-webkit-transition" : "0.2s ease-in-out"
+		    	};
+		    	/*$scope.contentmargin={
+		    		"margin-top" : "150x",
+		    		"webkit-transition" : "0.4s ease-in-out"
+		    	}*/
+		    $scope.yposition = $scope.topposition;
+		    $scope.$apply();
+		    }
+		    
+		    
+		  
+		    if (($scope.topposition - $scope.yposition) < -1){
+		    	$scope.headerslide = {
+		    	"position" : "fixed",
+		  		"top" : "0",
+		  		"left" : "0",
+		  		"right" : "0",
+		  		"-webkit-transition" : "0.2s ease-in-out"
+		    }
+		/*    $scope.contentmargin={
+		    	"margin-top" : "150px",
+		    	"webkit-transition" : "0.4s ease-in-out"
+		    }*/
+		     $scope.yposition = $scope.topposition;
+		     $scope.$apply();
+		    };
+		};
+
+		$scope.jumboin = function(x){
+			var val = $scope[x];
+			$scope[x] = val = {
+				"background-color" : "rgba(0,0,0,0.5)",
+		        "min-height" : "10%",
+		        "height" : "auto",
+		        "position" : "absolute",
+		        "width" : "100%",
+		        "bottom" : "0",
+		        "color" : "white",
+		        "-webkit-transition" : "0.4s ease-in-out"
+			};
+		}
+		$scope.jumboout = function(x){
+			$scope.jumbostyle= {
+				"background-color" : "rgba(0,0,0,0.3)",
+		        "min-height" : "10%",
+		        "height" : "auto",
+		        "position" : "absolute",
+		        "width" : "100%",
+		        "bottom" : "0",
+		        "color" : "white",
+		        "-webkit-transition" : "0.4s ease-in-out"
+		    };
+		};
+		 $scope.currentNavItem = 'page1';
+		   $scope.openLeftMenu = function() {
+		 $mdSidenav('right').toggle();
+		};
+		$scope.openNav=function() {
+		    document.getElementById("myNav").style.height = "100%";
+		};
+
+		$scope.closeNav=function() {
+		    document.getElementById("myNav").style.height = "0%";
+		};
+
+		 var originatorEv;
+		             this.openMenu = function($mdOpenMenu, ev) {
+		             originatorEv = ev;
+		                $mdOpenMenu(ev);
+		             };
+		             this.menuItemClick = function(index) {
+		                $mdDialog.show(
+		                   $mdDialog.alert()
+		                     .title('')
+		                     .textContent('Menu Item clicked, index: ' + index)
+		                     .ok('OK')
+		                     .targetEvent(originatorEv)
+		                );
+		                originatorEv = null;
+		             };
+	});
+
+	app.config(function($mdThemingProvider) {
+
+      $mdThemingProvider.theme('headertheme')
+      .primaryPalette('grey')
+      .accentPalette('yellow')
+      .dark();
+
+      $mdThemingProvider.theme('dialoguetheme')
+      .primaryPalette('yellow')
+      .accentPalette('yellow')
+      .dark();
+
+      $mdThemingProvider.theme('inputtheme')
+      .primaryPalette('yellow')
+      .accentPalette('yellow');
+  });
+	
+</script>
+
+<style>
+.headertext1{
+	font-family: "freshman";
+	font-size:calc(20px + 1vw);
+	color: #ffed0b;
+	margin-top:auto;
+	margin-bottom:auto;
+	text-align:center;
+	white-space: nowrap;
+}
+
+.headertext2{
+	font-family: "freshman";
+	color: #ffed0b;
+	margin-bottom: auto;
+	margin-top: 10px;
+	margin-right: 30px;
+}
+
+
+md-nav-bar .md-nav-bar {
+  background: yellow;
+  background-color:#2d2d2d;
+}
+
+.listicon { 
+	color:white;
+	text-align:center
+}
+
+
+.listicon2 {
+	max-width: 40px; 
+	color:white;
+	text-align:center
+}
+
+.listicon2.md-button {
+	min-width:1%; 
+	margin-right:vw;
+}
+
+.listicon:hover{
+	background-color: #565656
+}
+
+.listicon2:hover{
+	background-color: #565656
+}
+
+.md-button.md-headertheme-theme.md-accent {
+    color: white;
+    margin:0;
+    border-radius:0px;
+}
+
+md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected {
+    color: white;
+}
+md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
+    color: #ffed0b;
+    background: #ffed0b
+}
+
+.searchbtn.md-button{
+  color : #92959c;
+  border-radius: 100px;
+  font-size: 16px;
+  width:20px;
+  min-width:40px;
+  min-height:40px;
+  margin-right:5px;
+}
+
+.searchbtn:not([disabled]):hover {
+  background-color: rgba(107, 103, 91, 0.96);
+  color: white;
+}
+.loginbutton{
+	color:#92959c;
+	background-color:transparent;
+	border-radius:2px;
+	border-color:#92959c;
+	border-style:solid;
+	border-width: 1px;
+	width: 50px; 
+    height: 34px;
+}
+.loginbutton.md-button{
+	 min-width:50%;
+	 min-height:1%;
+	 padding:none;
+	 margin-right:0px;
+}
+.loginbutton.md-button:hover{
+	
+}
+#smalllogin{
+	border:none;
+	margin-left:1vw;
+	padding-left:1vw;
+}
+
+#smallsearch{
+	border:none;
+	margin:1vw;
+	padding:1vw;
+}
+
+md-sidenav.md-default-theme, md-sidenav, md-sidenav.md-default-theme md-content, md-sidenav md-content {
+    background-color: #2d2d2d;
+}
+
+.groupX {
+    font-size: 16px;
+    margin: 0 0;
+    padding: 3px 15px 3px 15px;
+    color: white;
+    background-color: #2d2d2d;
+    text-transform: none;
+    text-align: left;
+    font-weight: 400;
+    min-width:100%;
+}
+
+.groupX:hover {
+	color:#ffed0b;
+}
+
+.md-button.middle {
+    border-radius: 0;
+    border-left: 1px solid #2d2d2d;
+    border-right: 1px solid #2d2d2d;
+}
+md-divider.divide{
+    border-color:rgba(255, 255, 255, 0.2);
+    width: 100%;
+}
+.back{
+
+}
+.back:hover{
+	color:#ffed0b;
+}
+.md-button.md-fab.back{
+	color:yellow;
+}
+
+md-nav-ink-bar{
+	height:2px;
+}
+.headlineimage{
+	height:auto;
+	width:100%;
+	-webkit-transition: all 0.6s ease-in;
+}
+.headlineimage:hover{
+	
+	-webkit-filter: blur(1px) contrast(1.1) grayscale(0.4);
+	-webkit-transform: scale(1.05);
+	cursor: pointer;
+
+}
+
+.videoimage{
+	height:auto;
+	width:100%;
+	-webkit-transition: all 0.6s ease-in;
+	cursor: pointer;
+}
+.headlinebox{
+	position: absolute;
+	background-color:rgba(0,0,0,0.9);
+	width:100%;
+	bottom:0;
+	min-height:10%;
+	height:auto;
+	color:white;
+	-webkit-transition: all 0.4s ease-in-out;
+}
+.headlinebox-hover{
+	position: absolute;
+	min-height:10%;
+	background-color: rgba(0,0,0,0.9);
+	width:100%;
+	height:auto;
+	bottom:0;
+	color:white;
+	-webkit-transition:0.4s ease-in-out;
+	cursor: pointer;
+
+}
+#content{
+	max-height: initial;
+    background-color: white;
+    padding: 10px;
+    margin-top: 100px;
+}
+
+.background{
+	background-color:rgb(250,250,250);
+	z-index:-1;
+}
+
+.bgcolor{
+	background-color:rgb(250,250,250);
+	-webkit-transition: 0.3s;
+}
+
+.bgcolor:hover{
+	background-color:rgb(230,230,230);
+}
+
+.tweetsbg{
+	background-color:white;
+	-webkit-transition: 0.3s;
+}
+
+.tweetsbg:hover{
+	background-color:rgb(240,240,240);
+}
+
+.removeleftpadding{
+	padding-left:0;
+	margin-left:0;
+	clear:both;
+	max-width: 1%;
+	width:10px;
+}
+
+.crop{
+	background-size:cover; 
+	background-position: 50% 50%
+
+}
+
+.boxfont{
+	font-size: calc(0.7vw + 10px); 
+	padding:10px
+}
+#sidenews.md-button{
+	text-align: left;
+	max-width:400px;
+	line-height:inherit;
+	margin-left:0px;
+	padding-left:0px;
+}
+
+.image-container{ 
+	padding-top:60%; 
+	position:relative;
+}
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    top:0%;
+    z-index: 3;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+.overlay md-input-container{
+    padding:0px;
+    font-size:2vh;
+}
+.overlay md-input-container .md-input {
+    box-sizing: none;
+    color: black;
+    height:100px;
+    padding:20px;
+    font-size: 2vh;
+}
+.overlay md-input-container label {
+  color: yellow !important;
+}
+.overlay md-input-container.md-input-focused label {
+  color: yellow !important;
+}
+.overlay-content {
+    position: relative;
+    top: 35%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 4vh;
+}           
+.contentdivide{
+	 border-top-width:5px; 
+	 border-color:white;
+	 margin-left:10%;
+	 margin-right:10%;
+}
+.video{
+	position:relative;
+	height:100%;
+}
+
+.playbutton{
+	text-align:center; 
+	color:white; 
+	opacity:0.7;
+	font-size:8vw; 
+	margin-top:auto; 
+	margin-bottom:auto;
+	transition: all 0.6s;
+}
+
+
+.playbutton-hover{
+	text-align:center; 
+	color:red; 
+	font-size:8vw; 
+	margin-top:auto; 
+	margin-bottom:auto;
+	transition: all 0.6s;
+}
+md-input-container{
+    max-width:250px;
+}
+md-input-container label {
+  color: white !important;
+  font-size: 1.2em;
+}
+md-input-container.md-input-focused label {
+  color: yellow !important;
+  font-size: 1.2em;
+}
+md-input-container md-select{
+    background-color: lightgrey;
+    max-width: 200px;
+}
+.Dropdown span{
+  color: black; 
+  font-size: 0.9em;
+  font-weight:100;
+  padding:0px 10px 10px 5px;
+}
+.languagedropdown{
+    font-family: calibri; 
+    padding: 0px 20px 0px 20px; 
+    max-height: 50px; 
+    margin: 0px 0px 0px 0px;
+}
+h4 { 
+    display: block;
+    font-size: 1.2em;
+    margin-top: 1.33em;
+    margin-bottom: 0.50em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #FDEA00;
+    padding: 0px 0px 10px 0px;
+}
+.footertitle{
+    font-family:Freshman;
+    color: white;
+    font-size:calc(15px + 4vw);
+}
+#footer{
+	background-color:#2d2d2d;
+    color: white; 
+    padding: 0px 0px 60px 0px; 
+}
+.footerlastrow{
+    color: white; 
+    text-decoration: none; 
+    font-size: calc(10px + 0.5vw); 
+    margin: 10px 10px 10px 0px;
+}
+
+.social-box{
+	height:inherit;
+	min-height:355px;
+	background-color:white;
+	border-top: 5px solid #ffed0b;
+	padding:15px;
+}
+
+.social-box-font{
+	font-size:2.6vw;
+	white-space:nowrap;
+	font-weight:300;
+}
+.social-box-font-2{
+	font-size:2.2vw;
+	white-space:nowrap;
+	font-weight:200;
+}
+.social-box-icon-wrap{
+	height:3vw; 
+	width:3vw; 
+	margin:10px;
+	-webkit-transition: 0.2s;
+}
+
+.social-box-icon-wrap:hover{
+	-webkit-transform: scale(1.2);
+}
+.social-icon{
+	width:inherit;
+	height:auto;
+}
+
+.learn{
+	border-bottom: 3px solid white;
+	background-color:white;
+	color:#f3e100;
+	-webkit-transition: all 0.3s;
+}
+
+.learn:hover{
+	border-bottom: 3px solid #ffed1b;
+	background-color:white !important;
+	color:#2d2d2d;
+	-webkit-transform: scale(0.95);
+}
+
+.social-box md-input-container label {
+  color: grey !important;
+  font-size: 12px !important;
+}
+
+.social-box md-input-container{
+	max-width:inherit;
+	margin-bottom:0px;
+}
+
+.follow{
+	color:black;
+	background-color:#ffed0b !important;
+	box-shadow: none !important; 
+}
+.celebrank-box-font{
+	font-size:2vw;
+	white-space:nowrap;
+	color:white;
+	font-weight:400;
+	margin-top:10px;
+	margin-bottom:0px;
+	padding-bottom:5px;
+	border-bottom: 3px solid #ffed0b;
+}
+.celeb-rank-item{
+	margin:3px 3px 0px 3px;
+	color:black;
+	border-bottom: 2px solid #2d2d2d;
+	transition:0.2s;
+	background-color: rgb(250,250,250);
+	cursor:pointer;
+	font-weight:900;
+
+}
+.celeb-rank-item:hover{
+	color:black;
+	background-color:#ffed0b;
+}
+.tweets-head{
+	background-color:#2d2d2d;
+	color:white;
+	border-bottom: 4px solid #ffed0b;
+	margin:0;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.more-button{
+	background-color:#ffed0b; 
+	padding-top:10px; 
+	cursor:pointer; 
+	min-height:40px; 
+	width:60%; 
+	margin:50px auto 0px auto;
+	text-align:center
+}
+
+.tweetsbox{
+	margin-bottom:50px;
+}
+
+.sidenav-hidden{
+	position: fixed;
+	top:0; left: 0;
+	transition:0.4s;
+}
+
+.sidenav-show{
+	position: fixed;
+	top:0; left: 250;
+	transition:0.4s;
+}
+
+
+md-sidenav.md-closed{
+	display:block;
+}
+</style>
+
+</html>
