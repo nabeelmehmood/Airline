@@ -1,21 +1,24 @@
-var app = angular.module("myAirlineRoute", ['ngRoute','ngAnimate','ngMaterial']);
+var app = angular.module("myAirlineRoute", ['ngRoute','ngAnimate','ngMessages','ngMaterial','ngAria']);
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "main.htm"
+        templateUrl : "main.htm",
+        controller : "mainCtrl"
     })
     .when("/book", {
-        templateUrl : "book.htm"
+        templateUrl : "book.htm",
+        controller : "bookCtrl"
     })
-    .when("/green", {
-        templateUrl : "green.htm"
+    .when("/manage", {
+        templateUrl : "manage.htm",
+        controller : "manageCtrl"
     })
     .when("/blue", {
         templateUrl : "blue.htm"
     });
 });
 
-app.controller('myctrl', function($scope){
+app.controller('myctrl', function($scope,$timeout,$mdSidenav,$mdUtil){
     $scope.sidenavvar="side-nav-hidden";
     $scope.today = new Date();
     $scope.toggleSidenav = function() {
@@ -28,7 +31,7 @@ app.controller('myctrl', function($scope){
    
 });
 
-app.controller('mainCtrl', function($scope){
+app.controller('mainCtrl', function($scope,$timeout,$mdSidenav,$mdUtil){
     $scope.loginmodal = "teal";
     $scope.signupmodal= "grey";
     $scope.loginmodaltoggle = function(){
@@ -42,5 +45,16 @@ app.controller('mainCtrl', function($scope){
     $scope.loginhide = false;
     $scope.signuphide = true;
     $scope.modalshow = "show-signup-modal-hide";
-    
+});
+
+app.controller('bookCtrl', function($scope,$timeout,$mdSidenav,$mdUtil){
+     $scope.available = "Yes";
+     $scope.ticketprice= 200;
+     
+});
+
+app.controller('manageCtrl', function($scope,$timeout,$mdSidenav,$mdUtil){
+     $scope.available = "Yes";
+     $scope.ticketprice= 200;
+     
 });

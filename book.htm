@@ -1,14 +1,16 @@
 <html>
-  <body>
-    <div ng-controller="mainCtrl" class="grey lighten-3">
+<script src="js/materializejquery.js"></script>
+
+  <body ng-controller="bookCtrl">
+    <div  class="grey lighten-3">
 
       <div class="" style="padding: 50px 8.33333%">
         
-        <div class="row white remove-bot-margin">
-          <h2 class="col teal-text " style="font-weight:bold"> Bookings </h2>
+        <div class="row teal white-text remove-bot-margin">
+          <h2 class="col" style="font-weight:100"> Bookings </h2>
         </div>
 
-        <div class="row white remove-bot-margin">
+        <div class="row white remove-bot-margin" style="padding: 40px 0px">
           <div class="col l4 m12 s12">
             <md-card style="overflow:hidden;">
               <div class= "md-card-image zoom aspect-ratio " style="overflow:hidden; background-image:url('pictures/vacation.jpg'); ">           
@@ -45,18 +47,19 @@
             </md-card>
           </div>
         </div>
-        <div class="row white" style="">       
-          <form id="booking-form" name="booking" style="padding:50px">
+        <div class="row white bg-color center container-form" style="">       
+          <form id="booking-form" class="container white hoverable" name="booking" style="padding:50px">
+            <h3 class="teal-text flow-text">Search available flights</h3>
             <div class="row" style="margin-top:50px">
               <div class="col s6">
                 <md-input-container style="display:block">
                   <label>Where From</label>
-                  <md-select name="wherefrom" ng-model="booking.wherefrom" required>
-                    <md-option value="lhr">Lahore</md-option>
-                    <md-option value="khi">Karachi</md-option>
-                    <md-option value="jfk">New York</md-option>
-                    <md-option value="dxb">Dubai</md-option>
-                    <md-option value="par">Paris</md-option>
+                  <md-select name="wherefrom" ng-model="wherefrom" required>
+                    <md-option value="LHR">Lahore</md-option>
+                    <md-option value="KHI">Karachi</md-option>
+                    <md-option value="JFK">New York</md-option>
+                    <md-option value="DXB">Dubai</md-option>
+                    <md-option value="PAR">Paris</md-option>
                   </md-select>
                 </md-input-container>
               </div>
@@ -64,31 +67,92 @@
               <div class="col s6">
                 <md-input-container style="display:block">
                   <label>Where To</label>
-                  <md-select name="whereto" ng-model="booking.whereto" required>
-                    <md-option value="lhr">Lahore</md-option>
-                    <md-option value="khi">Karachi</md-option>
-                    <md-option value="jfk">New York</md-option>
-                    <md-option value="dxb">Dubai</md-option>
-                    <md-option value="par">Paris</md-option>
+                  <md-select name="whereto" ng-model="whereto" required>
+                    <md-option value="LHR">Lahore</md-option>
+                    <md-option value="KHI">Karachi</md-option>
+                    <md-option value="JFK">New York</md-option>
+                    <md-option value="DXB">Dubai</md-option>
+                    <md-option value="PAR">Paris</md-option>
                   </md-select>
                 </md-input-container>
               </div>
             </div>
 
             <div class="row">
-              <div class="col s12">
-               <md-input-container>
+              
+              <div class="col l6 s12">
+                <md-input-container style="width:100%">
+                    <label>No. of people travelling</label>
+                    <input required name="people" pattern="[1-9]{0,1}" min="1" max="9" ng-model="peoplecount">
+                    <div ng-messages="booking.people.$error">
+                      <div ng-message="required" md-auto-hide="false">Enter a number between 1-9</div>
+                      <div ng-message="pattern" md-auto-hide="false">Enter a number between 1-9</div>
+                    </div>
+                </md-input-container>
+              </div>
+
+              <div class="col l6 s12">
+               <md-input-container style="">
                   <label>Date of flight</label>
                   <md-datepicker name="flightdate" ng-model="flightdate" required></md-datepicker>
-                  <div ng-messages="booking-form.flightdate.$error">
+                  <div ng-messages="booking.flightdate.$error">
                     <div ng-message="required"></div>
                   </div>
                 </md-input-container>
               </div>
+              <div class="col l12 s12">
+                <md-input-container style="display:block">
+                  <label>Select Class</label>
+                  <md-select name="class" ng-model="class" required>
+                    <md-option value="First">First Class</md-option>
+                    <md-option value="Business">Business Class</md-option>
+                    <md-option value="Economy">Economy Class</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+              
+            </div>
+            <div>
+              <md-button type="submit" id="booksubmit" ng-disabled="booking.$invalid">Submit</md-button>
             </div>
             <div id="guest-booking" class="red-text" style="font-style:italic;margin:10px">
               *You must be signed in to book flights
             </div>
+          </form>
+
+          <div id="book-search-result" class="container white hoverable container-form" style=" display:none">
+            <div class="row grey lighten-4">
+              <p class="col l6 s12">Origin: <span class="teal-text" style="font-weight:bold">{{ wherefrom }}</span></p>
+              <p class="col l6 s12">Destination: <span class="teal-text" style="font-weight:bold">{{ whereto }}</span></p>
+            </div>
+            <div class="row grey lighten-4">
+              <p class="col l6 s12">Date of Travel: <span class="teal-text" style="font-weight:bold">{{ flightdate | date : "MMMM, dd, yyyy" }}</span></p>
+              <p class="col l6 s12">Seat Class: <span class="teal-text" style="font-weight:bold">{{ class }}</span></p>
+            </div>
+            <div class="row grey lighten-4">
+              <p class="col l6 s12">Number of Seats: <span class="teal-text" style="font-weight:bold">{{ peoplecount }}</span></p>
+              <p class="col l6 s12">Availability: <span class="teal-text" style="font-weight:bold">{{ available }}</span></p>
+            </div>
+            <div>
+               <md-button type="submit" id="calcharges">Calculate Charges</md-button>
+             </div>
+            
+          </div>
+
+          <form id="book-purchase" class="container white hoverable container-form" style="display:none">
+            <div class="row grey lighten-4">
+              <p class="col l6 s12">Seats: <span class="teal-text" style="font-weight:bold">{{ peoplecount }}</span></p>
+              <p class="col l6 s12">Price per Ticket: <span class="teal-text" style="font-weight:bold">${{ ticketprice }}</span></p>
+            </div>
+            <div class="row grey lighten-4">
+              <h4 class="s12">Total:<span class="teal-text" style="font-weight:bold"> $</span><span class="teal-text" style="font-weight:bold">{{ peoplecount * ticketprice }}</span></h4>
+            </div>
+
+            <div>
+               <md-button type="submit" id="purchase-button">Confirm Purchase</md-button>
+             </div>
+
+            <h4 class="teal white-text" id="payment-done" style="display:none; border-radius:10px; padding:20px;font-weight:100">Thank you for choosing <span style="white-space:nowrap;font-weight:bold;font-family:'Amaranth'">NM Airlines</span></h4>
           </form>
         </div>
         

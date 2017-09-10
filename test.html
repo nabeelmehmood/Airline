@@ -4,42 +4,28 @@
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
-      <link rel="stylesheet" href="/Airline/css/angular-material.min.css">
+     
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       <script type="text/javascript" src="js//jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-     
-      <script src="js/materializejquery.js"></script>
       <link rel="stylesheet" href="/Airline/css/custom.css">
 
     </head> 
     <!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+      <p>hello</p>
 
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal bottom-sheet">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-      </div>
-              
 </html>
 
 <script>
-(function($){
-  $(function(){
-
-    $('#modal1').modal('open');
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+$(document).ready(function(){
+    $("p").click(function(){
+        $("p").hide();
+    });
+    $("#show").click(function(){
+        $("p").show();
+    });
+});
+</script>
 </script

@@ -2,6 +2,24 @@
   <html ng-app = "myAirlineRoute" ng-controller="myctrl" ng-cloak>
     <head>
       <title>NM Airlines</title>
+      <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="facivon/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -13,6 +31,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <script src="js/jquery-3.2.1.min.js"></script>
       <script src="js/materialize.min.js"></script>
+      <script src="js/materializejquery.js"></script>
       <script src="js/angular.min.js"></script>
       <script src="js/angular-route.js"></script>
       <script src="js/angular-animate.js"></script>
@@ -27,7 +46,7 @@
       <div id="side-nav" ng-class="sidenavvar" class="z-depth-4" >
         <div class="row" style="margin-top:20px">
           <span class="right" style="margin-right:10px">
-           <a href="#!"  class = "btn-floating teal white-text waves-effect waves-light " ng-click="toggleSidenav()"><i class="material-icons white-text" style="margin-right:10px; box-shadow: initial;">arrow_back</i></a>  
+           <a href=""  class = "btn-floating teal white-text waves-effect waves-light" style="cursor:pointer" ng-click="toggleSidenav()"><i class="material-icons white-text" style="margin-right:10px; box-shadow: initial;">arrow_back</i></a>  
           </span>
           <span class="" style="">
             <h4 class="white-text" style="font-family: 'Amaranth'; margin-left:10px">NM Airlines</h4>
@@ -48,7 +67,7 @@
         <div class="row container">
           <ul id="" class="teal-text" style="border-top:1px solid white ; padding-top:20px">
             <li><a href="#!book" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important">Book a Flight</a></li>
-            <li><a href="#!" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important;">Manage</a></li>
+            <li><a href="#!manage" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important;">Manage</a></li>
             <li><a href="#!" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important">Experience</a></li>
           </ul>          
         </div>
@@ -61,7 +80,7 @@
           <a href = "#!" id="#logo" class=" brand-logo" style="white-space:nowrap; font-family: 'Amaranth'; font-weight:bold; display: inline-block">NM Airlines</a>
           <ul id="nav-mobile" class="white-text right hide-on-med-and-down" style="margin-right:8.3333333%">
             <li><a href="#!book" class="">Book a Flight</a></li>
-            <li><a href="#!" class="">Manage Your Bookings</a></li>
+            <li><a href="#!manage" class="">Manage Your Bookings</a></li>
             <li><a href="#!" class="">Experience</a></li>
           </ul>
         </div>
@@ -86,10 +105,13 @@
       <div class="black white-text" style="height:25px; font-size:12px; vertical-align:middle">
         Made with <span class="red-text"> &#10084; </span>by Nabeel
       </div>
+
     </footer>
 
     </body>
 
 
-
+    <script>
+   
+    </script>
   </html>
