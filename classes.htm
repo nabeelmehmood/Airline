@@ -1,0 +1,108 @@
+<html>
+<script src="js/materializejquery.js"></script>
+
+  <body>
+    <div ng-controller="mainCtrl" style="min-height:600px">
+        <div class="row container" style="margin-top:20px">
+          <div class="col s12">
+            <ul class="collection with-header hoverable">
+              <li class="collection-header teal"><h4 class="white-text">First Class</h4></li>
+              <li class="collection-item" ng-repeat="x in firstfeatures">
+                 <div ng-hide="editorEnabled" ng-model="feature">
+                    {{x}}
+                    <a class="right" href="" ng-click="enableEditor(x)">Edit</a>
+                  </div>
+                  <div ng-show="editorEnabled">
+                    <input ng-model="x" ng-show="editorEnabled">
+                    <a href="" ng-click="save(x)">Save</a>
+                    or
+                    <a href="" ng-click="disableEditor()">cancel</a>.
+                  </div>
+              </li>
+              <li class="collection-item">
+                <div ng-hide="editorEnabled">
+                    Price: ${{price.first}}
+                   <a class="right" href="" ng-click="enableEditor(price.first)">Edit</a>
+                 </div>
+                 <div ng-show="editorEnabled">
+                   <input ng-model="price.first" ng-show="editorEnabled">
+                   <a href="" ng-click="save(price.first)">Save</a>
+                   or
+                   <a href="" ng-click="disableEditor()">cancel</a>.
+                 </div>
+              </li>
+               
+            </ul>
+          </div>
+        </div>
+
+        <div class="row container">
+          <div class="col s12">
+            <ul class="collection with-header hoverable">
+              <li class="collection-header teal"><h4 class="white-text">Business Class</h4></li>
+              <li class="collection-item" ng-repeat="x in businessfeatures">
+                 <div ng-hide="editorEnabled" ng-model="feature">
+                    {{x}}
+                    <a class="right" href="" ng-click="enableEditor(x)">Edit</a>
+                  </div>
+                  <div ng-show="editorEnabled">
+                    <input ng-model="x" ng-show="editorEnabled">
+                    <a href="" ng-click="save(x)">Save</a>
+                    or
+                    <a href="" ng-click="disableEditor()">cancel</a>.
+                  </div>
+              </li>
+              <li class="collection-item">
+                <div ng-hide="editorEnabled">
+                    Price: ${{price.business}}
+                   <a class="right" href="" ng-click="enableEditor(price.business)">Edit</a>
+                 </div>
+                 <div ng-show="editorEnabled">
+                   <input ng-model="price.first" ng-show="editorEnabled">
+                   <a href="" ng-click="save(price.business)">Save</a>
+                   or
+                   <a href="" ng-click="disableEditor()">cancel</a>.
+                 </div>
+              </li>
+               
+            </ul>
+          </div>
+        </div>
+
+        <div class="row container">
+          <div class="col s12">
+            <ul class="collection with-header hoverable">
+              <li class="collection-header teal"><h4 class="white-text">Economy Class</h4></li>
+              <li class="collection-item" ng-repeat="x in economyfeatures">
+                 <div ng-hide="editorEnabled" ng-model="feature">
+                    {{x}}
+                    <a class="right" href="" ng-click="enableEditor(x)">Edit</a>
+                  </div>
+                  <div ng-show="editorEnabled">
+                    <input ng-model="x" ng-show="editorEnabled">
+                    <a href="" ng-click="save(x)">Save</a>
+                    or
+                    <a href="" ng-click="disableEditor()">cancel</a>.
+                  </div>
+              </li>
+              <li class="collection-item">
+                <div ng-hide="editorEnabled">
+                    Price: ${{price.economy}}
+                   <a href="" class="right" ng-click="enableEditor(price.economy)">Edit</a>
+                 </div>
+                 <div ng-show="editorEnabled">
+                   <input ng-model="price.first" ng-show="editorEnabled">
+                   <a href="" ng-click="save(price.economy)">Save</a>
+                   or
+                   <a href="" ng-click="disableEditor()">cancel</a>.
+                 </div>
+              </li>
+               
+            </ul>
+          </div>
+       
+    </div>
+     
+  </body>
+</html>
+

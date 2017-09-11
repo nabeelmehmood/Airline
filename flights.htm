@@ -1,0 +1,33 @@
+<html>
+<script src="js/materializejquery.js"></script>
+
+  <body>
+    <div style="min-height:600px">
+       <div class="row container" style="margin-top:20px">
+          <div class="col s12">
+            <ul class="collection with-header hoverable"  >
+              <li class="collection-header teal" ><h4 class="white-text">Flights</h4></li>
+              <li class="collection-item" ng-repeat="x in flights">
+                 <div ng-hide="editorEnabled" ng-model="feature">
+                    {{x.id}}
+                    <a class="right" style="margin-left:20px" href="" ng-click="enableEditor(x.seats)">Edit</a>
+                    <span class="right" >Seats: {{ x.seats }}</span>
+                  </div>
+                  <div ng-show="editorEnabled">
+                    <input ng-model="x.seats" ng-show="editorEnabled">
+                    <a href="" ng-click="save(x.seats)">Save</a>
+                    or
+                    <a href="" ng-click="disableEditor()">cancel</a>.
+                  </div>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+       
+    </div>
+     
+  </body>
+</html>
+

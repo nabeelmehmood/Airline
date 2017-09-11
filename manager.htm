@@ -59,41 +59,35 @@
               <span class=""><i class="material-icons white-text teal darken-2 medium" style="">account_circle</i></span>
             </div>
             <div class="row remove-bot-margin">
-              <span id="nav-user" class="white-text" style=" font-size:18px; font-weight: 300">Guest</span>
+              <span id="nav-user" class="white-text" style=" font-size:18px; font-weight: 300">Manager</span>
             </div>
           </div>
         </div>
 
         <div class="row container">
           <ul id="" class="teal-text" style="border-top:1px solid white ; padding-top:20px">
-            <li><a href="#!book" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important">Book a Flight</a></li>
-            <li><a href="#!manage" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important;">Manage</a></li>
-            <li><a href="#!experience" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important">Experience</a></li>
+            <li><a href="#!approvals" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important">Approvals</a></li>
+            <li><a href="#!mflights" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important;">Flights</a></li>
+            <li><a href="#!mclasses" class="white btn waves-effect waves-dark" style="width:100%;box-shadow:initial; text-align:left; font-weight:bold; background-color:transparent !important;">Classes</a></li>
+            
           </ul>          
         </div>
       </div>
       <nav class="" style="">
         <div class="nav-wrapper bg-color darken-1 row" style="">
           <span class="hide-on-large-only">
-            <a href="#!" ng-click="toggleSidenav()"><i class="material-icons small col s1" style="">menu</i></a>  
+            <a href="" ng-click="toggleSidenav()"><i class="material-icons small col s1" style="cursor:pointer">menu</i></a>  
           </span>
-          <a href = "#!" id="#logo" class=" brand-logo" style="white-space:nowrap; font-family: 'Amaranth'; font-weight:bold; display: inline-block">NM Airlines</a>
+          <a href = "/Airline/manager.htm#!/managerpanel" id="#logo" class=" brand-logo" style="white-space:nowrap; font-family: 'Amaranth'; font-weight:bold; display: inline-block">NM Airlines</a>
           <ul id="nav-mobile" class="white-text right hide-on-med-and-down" style="margin-right:8.3333333%">
-            <li><a href="#!book" class="">Book a Flight</a></li>
-            <li><a href="#!manage" class="">Manage Your Bookings</a></li>
-            <li><a href="#!experience" class="">Experience</a></li>
+            <li><a href="#!approvals" class="">Approvals</a></li>
+            <li><a href="#!mflights" class="">Flights</a></li>
+            <li><a href="#!mclasses" class="">Classes</a></li>
           </ul>
         </div>
         
       </nav>
-     <div class="teal darken-2  row white-text remove-bot-margin hide-on-med-and-down" style="">
-       <span class="col right" style="white-space:nowrap; margin-right:8.333%">
-        <span style="white-space:nowrap; font-weight:100;vertical-align:middle; margin-right:10px">{{ today | date : "MMMM, dd, yyyy" }}</span>
-        <span><i class="material-icons" style="vertical-align:middle">account_circle</i></span>
-        <span id="nav-user" style="vertical-align:middle; font-weight:100;">Guest</span>
-        <a href="#!" style="margin-left:20px"><span id="guest-login" class="white teal-text" style="vertical-align:middle;font-size:12px; font-weight:bold; border-radius:12px; padding:2px">Login</span></a>
-       </span>
-     </div>
+     
     </header>
     <div ng-view></div>
 

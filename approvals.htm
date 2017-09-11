@@ -1,0 +1,30 @@
+<html>
+<script src="js/materializejquery.js"></script>
+
+  <body>
+    <div style="min-height:600px">
+       <div class="row container" style="margin-top:20px">
+          <div class="col s12">
+            <ul class="collection with-header hoverable"  >
+              <li class="collection-header teal" ><h4 class="white-text">Pending Approval</h4></li>
+              <li class="collection-item" ng-repeat="x in pending">
+                 <div>
+                    {{x.id}}
+                    <span class="right" style="margin-left:20px">
+                      <input type="checkbox" ng-model="x.approved" value="true" id="{{ x.i }}" />
+                      <label for="{{ x.i }}" >Approve</label>
+                    </span>
+                    <span class="right" >Seats: {{ x.seats }}</span>
+                  </div>
+              </li>
+            </ul>
+            <div class="btn" ng-click="approve()">Submit</div>
+              
+
+          </div>
+
+        </div>
+    </div>
+     
+  </body>
+</html>
